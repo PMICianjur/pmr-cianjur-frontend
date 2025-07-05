@@ -19,6 +19,23 @@
   }
 }
 
+@layer components {
+  /* Menerapkan transisi ke semua tombol dan link */
+  .btn, button, a {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  /* Efek hover umum untuk tombol */
+  .btn, button {
+    @apply hover:opacity-90 active:scale-95;
+  }
+  
+  /* Menerapkan transisi ke semua input dan select */
+  input, select, textarea {
+     @apply transition-colors duration-200;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
