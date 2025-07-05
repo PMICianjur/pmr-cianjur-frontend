@@ -7,7 +7,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
 import  Header  from '../../components/Header';
-import  Footer  from '../components/Footer';
+import  Footer  from '../../components/Footer';
 
 import KwitansiPDF from '../../components/pendaftaran/KwitansiPDF';
 import { FiCheckCircle, FiDownload, FiLoader } from 'react-icons/fi';
