@@ -339,12 +339,12 @@ export default function Pendaftaran() {
         <div className="flex flex-col min-h-screen bg-gray-50">
             <Head>
                 <title>Pendaftaran Peserta - PMR Cianjur 2025</title>
-                <Script 
+            </Head>
+                            <Script 
                     src="https://app.sandbox.midtrans.com/snap/snap.js"
                     data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY} // Gunakan env variable!
                     strategy="afterInteractive" // Strategi yang aman
                 />
-            </Head>
             <Header />
 
             <main className="flex-grow container mx-auto px-4 py-8 md:py-12">

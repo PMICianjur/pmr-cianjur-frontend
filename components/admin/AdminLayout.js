@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { FiLogOut } from 'react-icons/fi';
-
+import Link from 'next/link';
 export default function AdminLayout({ children }) {
     const router = useRouter();
     const [admin, setAdmin] = useState(null);
@@ -29,21 +29,47 @@ export default function AdminLayout({ children }) {
         return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
     }
 
-    return (
-        <div className="flex min-h-screen bg-gray-100">
-            {/* Sidebar Sederhana */}
-            <aside className="w-64 bg-white shadow-md">
-                <div className="p-6 text-2xl font-bold text-red-700 border-b">
-                    PMI CIANJUR 
-                </div>
-               <nav className="mt-6">
-                <a className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/dashboard/">Dashboard</Link></a>
-                <a className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/pendaftar/">Pendaftar</Link></a>
-                {/* --- LINK BARU --- */}
-                <a href="/admin/peserta" className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/peserta/">Peserta</Link></a>
-            </nav>
-            </aside>
+     const navItems = [
+        { href: '/admin/dashboard', icon: <FiGrid />, label: 'Dashboard' },
+        { href: '/admin/pendaftar', icon: <FiList />, label: 'Pendaftar' },
+        { href: '/admin/peserta', icon: <FiUsers />, label: 'Peserta' },
+    ];
 
+    return (
+        <div className="min-h-screen bg-gray-100 flex">
+            <Head>
+                <title>Admin Dashboard PMR</title>
+            </Head>
+            
+            {/* Sidebar */}
+            <aside className="w-64 bg-white shadow-md flex-shrink-0 flex flex-col">
+                <div className="h-16 flex items-center justify-center border-b">
+                    <h1 className="text-xl font-bold text-red-600">ADMIN PMR</h1>
+                </div>
+                <nav className="flex-grow p-4 space-y-2">
+                    {navItems.map((item) => (
+                        <Link href={item.href} key={item.href}>
+                            <a className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                                router.pathname.startsWith(item.href) 
+                                ? 'bg-red-500 text-white shadow-md' 
+                                : 'text-gray-600 hover:bg-gray-200'
+                            }`}>
+                                {item.icon}
+                                <span>{item.label}</span>
+                            </a>
+                        </Link>
+                    ))}
+                </nav>
+                <div className="p-4 border-t">
+                    <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors"
+                    >
+                        <FiLogOut />
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </aside>
             {/* Konten Utama */}
             <main className="flex-1">
                 <header className="flex items-center justify-between p-4 bg-white border-b">
