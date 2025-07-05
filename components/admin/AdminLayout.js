@@ -36,11 +36,7 @@ export default function AdminLayout({ children }) {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-100 flex">
-            <Head>
-                <title>Admin Dashboard PMR</title>
-            </Head>
-            
+        <div className="min-h-screen bg-gray-100 flex">      
             {/* Sidebar */}
             <aside className="w-64 bg-white shadow-md flex-shrink-0 flex flex-col">
                 <div className="h-16 flex items-center justify-center border-b">
