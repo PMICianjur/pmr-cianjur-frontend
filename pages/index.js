@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 // Impor komponen
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import  Header  from '../components/Header';
+import  Footer  from '../components/Footer';
 
 import SectionWrapper from '../components/home/SectionWrapper';
 import HighlightCard from '../components/home/HighlightCard';

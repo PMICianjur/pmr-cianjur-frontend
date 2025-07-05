@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Gunakan komponen Image dari Next.js untuk optimasi
 import { FiMenu, FiX } from 'react-icons/fi'; // Impor ikon
 
-export const Header = () => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const closeMenu = () => {
@@ -65,3 +65,5 @@ export const Header = () => {
         </header>
     );
 };
+
+export default Header;
