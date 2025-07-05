@@ -4,7 +4,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import readXlsxFile from 'read-excel-file';
 import { AnimatePresence, motion } from 'framer-motion';
-
+import Script from 'next/script';
 // Import komponen UI
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -339,7 +339,11 @@ export default function Pendaftaran() {
         <div className="flex flex-col min-h-screen bg-gray-50">
             <Head>
                 <title>Pendaftaran Peserta - PMR Cianjur 2025</title>
-                <script type="text/javascript" src={process.env.NEXT_PUBLIC_MIDTRANS_SNAP_URL} data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}></script>
+                <Script 
+                    src="https://app.sandbox.midtrans.com/snap/snap.js"
+                    data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY} // Gunakan env variable!
+                    strategy="afterInteractive" // Strategi yang aman
+                />
             </Head>
             <Header />
 

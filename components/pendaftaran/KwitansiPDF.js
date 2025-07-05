@@ -60,6 +60,9 @@ const KwitansiPDF = ({ pendaftaran }) => {
     paddingBottom: '12px'
   }}
 >
+
+   {/* Perubahan: Tambahkan komentar ini untuk menonaktifkan aturan linting no-img-element */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
   <img
     src="/logo-pmi.png"
     alt="Logo PMI"

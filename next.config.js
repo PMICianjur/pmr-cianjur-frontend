@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    domains: [
+        'nama-backend-anda.up.railway.app' // GANTI DENGAN URL RAILWAY ANDA
+    ],
     // Daftarkan hostname dari server backend Anda di sini
     remotePatterns: [
       {

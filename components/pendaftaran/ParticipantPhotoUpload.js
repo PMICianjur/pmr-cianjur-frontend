@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone'; // <-- Impor useDropzone
 import { FiUpload, FiImage, FiTrash2, FiCheckCircle } from 'react-icons/fi';
-
+import Image from 'next/image';
 const ParticipantPhotoUpload = ({ index, name, selectedFile, onFileChange }) => {
     const [preview, setPreview] = useState(null);
 
@@ -70,7 +70,7 @@ const ParticipantPhotoUpload = ({ index, name, selectedFile, onFileChange }) => 
             {/* Konten Utama */}
             <div className="flex items-center gap-4">
                 {preview ? (
-                    <img src={preview} alt="Preview" className="w-12 h-12 rounded-full object-cover" />
+                    <Image src={preview} alt="Preview" layout="fill" className="rounded-full object-cover" />
                 ) : (
                     <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-400">
                         <FiImage size={24} />

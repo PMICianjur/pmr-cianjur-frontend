@@ -37,10 +37,10 @@ export default function AdminLayout({ children }) {
                     PMI CIANJUR 
                 </div>
                <nav className="mt-6">
-                <a href="/admin/dashboard" className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700">Dashboard</a>
-                <a href="/admin/pendaftar" className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700">Data Pendaftar</a>
+                <a className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/dashboard/">Dashboard</Link></a>
+                <a className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/pendaftar/">Pendaftar</Link></a>
                 {/* --- LINK BARU --- */}
-                <a href="/admin/peserta" className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700">Data Peserta</a>
+                <a href="/admin/peserta" className="block px-6 py-3 text-gray-700 hover:bg-red-50 hover:text-red-700"><Link href="/admin/peserta/">Peserta</Link></a>
             </nav>
             </aside>
 

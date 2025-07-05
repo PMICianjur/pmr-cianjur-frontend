@@ -11,7 +11,7 @@ import { FiArrowLeft, FiHome, FiUser, FiPhone, FiTag, FiUsers, FiMapPin, FiCalen
 import { FaCampground } from 'react-icons/fa'; // ini simbol tenda
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 const formatRupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number || 0);
 const formatDate = (dateString, formatStr = 'dd MMMM yyyy, HH:mm') => {
@@ -94,15 +94,14 @@ export default function DetailPendaftarPage() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                         {peserta.map(p => (
                             <div key={p.id} className="text-center">
-                                <img
-                                    src={`${BASE_URL}/${p.path_foto}`}
-                                    alt={`Foto ${p.nama_lengkap}`}
-                                    width="150"
-                                    height="150"
-                                    className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover mx-auto border-4 border-white shadow-lg"
-                                    // Tambahkan ini jika ada masalah cross-origin
-                                    crossOrigin="anonymous" 
-                                />
+                                <Image
+                                        src={`${BASE_URL}/${p.path_foto}`}
+                                        alt={`Foto ${p.nama_lengkap}`}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="rounded-full border-4 border-white shadow-lg"
+                                        crossOrigin="anonymous" 
+                                    />
                                 <p className="mt-2 text-slate-800 font-semibold text-sm">{p.nama_lengkap}</p>
                                 <p className="text-xs text-gray-500">{formatDate(p.tanggal_lahir, 'dd MMM yyyy')}</p>
                             </div>
