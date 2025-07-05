@@ -6,8 +6,9 @@ import readXlsxFile from 'read-excel-file';
 import { AnimatePresence, motion } from 'framer-motion';
 import Script from 'next/script';
 // Import komponen UI
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+
 import RingkasanBiaya from '../components/RingkasanBiaya';
 import Stepper from '../components/pendaftaran/Stepper';
 import Step1_DataSekolah from '../components/pendaftaran/Step1_DataSekolah';

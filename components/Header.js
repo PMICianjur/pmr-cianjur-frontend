@@ -5,31 +5,26 @@ import Link from 'next/link';
 import Image from 'next/image'; // Gunakan komponen Image dari Next.js untuk optimasi
 import { FiMenu, FiX } from 'react-icons/fi'; // Impor ikon
 
-export default function Header() {
-    // State untuk mengontrol menu mobile (terbuka/tertutup)
+export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Fungsi untuk menutup menu (berguna saat link diklik di mobile)
     const closeMenu = () => {
         setIsOpen(false);
     };
 
     return (
-        // Gunakan z-index yang tinggi agar header dan menu selalu di atas
         <header className="bg-white shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                {/* Logo */}
                 <Link href="/" onClick={closeMenu} className="flex items-center space-x-2">
                     <Image 
                         src="/logo-pmi.png" 
                         alt="Logo PMI"
-                        width={200} // Ganti dengan lebar asli gambar logo Anda
-                        height={200} // Ganti dengan tinggi asli gambar logo Anda
-                        className="h-12 w-auto" // Atur ukuran tampilan, w-auto membuatnya proporsional
+                        width={200}
+                        height={200}
+                        className="h-12 w-auto"
                     />
                 </Link>
 
-                {/* Navigasi untuk Desktop */}
                 <nav className="hidden md:flex space-x-6 items-center">
                     <Link href="/informasi" className="text-gray-600 hover:text-red-700 font-medium transition-colors">Informasi</Link>
                     <Link href="/admin/login" className="text-gray-600 hover:text-red-700 font-medium transition-colors">Admin</Link>
@@ -38,7 +33,6 @@ export default function Header() {
                     </Link>
                 </nav>
 
-                {/* Tombol Hamburger untuk Mobile */}
                 <div className="md:hidden">
                     <button onClick={() => setIsOpen(!isOpen)} aria-label="Buka Menu">
                         {isOpen ? (
@@ -50,8 +44,6 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Menu Overlay untuk Mobile */}
-            {/* Menggunakan transisi untuk efek slide-in yang halus */}
             <div 
                 className={`md:hidden fixed top-0 left-0 w-full h-screen bg-white transform transition-transform duration-300 ease-in-out ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
@@ -72,4 +64,4 @@ export default function Header() {
             </div>
         </header>
     );
-}
+};
